@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title>githubからAzuerへのCORSの設定</title>
+    <meta charset="utf-8">
+    <script>
+      let azuerAccess = undefined
+      console.log(azuerAccess)
+
+      fetch(`https://hello-funcsion-azuer-2.azurewebsites.net/api/httpTrigger1?name=${"AzuerChallenge"}`)
+        .then(response => response.text())
+        .then(data => console.log(data))
+        .catch(error => console.error('Error:', error));
+    </script>
+  </head>
+
+  <body>
+    <h1>ようこそ</h1>
+    <h2>githubからAzuerへのCORSの設定</h2>
+  </body>
+</html>
