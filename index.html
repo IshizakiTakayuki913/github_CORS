@@ -7,15 +7,50 @@
       let azuerAccess = undefined
       console.log(azuerAccess)
 
-      fetch(`https://hello-funcsion-azuer-2.azurewebsites.net/api/httpTrigger1?name=${"AzuerChallenge"}`)
-        .then(response => response.text())
-        .then(data => console.log(data))
-        .catch(error => console.error('Error:', error));
+      // const btn = document.getElementById("btn")
+      // btn.addEventListener("click", (e) => {
+      //   e.preventDefault();
+        
+      //   fetch(`https://game-funcsion.azurewebsites.net/api/httptrigger1?name=${"AzuerChallenge"}`)
+      //     .then(response => response.text())
+      //     .then(data => console.log(data))
+      //     .catch(error => console.error('Error:', error));
+        
+      // })
     </script>
   </head>
 
   <body>
     <h1>ようこそ</h1>
     <h2>githubからAzuerへのCORSの設定</h2>
+    
+    <!-- <form id="usernameForm"> -->
+      <input type="text" id="username" placeholder="ユーザーネームを入力" required />
+      <!-- <div class="error" id="errorMsg">※ ユーザーネームを入力してください</div> -->
+      <button id="btn" type="submit">登録</button>
+    <!-- </form> -->
+    <!-- <input id="input"> -->
+    <p id="data">...Loading</p>
+
+    <script>
+      
+      const btn = document.getElementById("btn")
+      const tag = document.getElementById("data")
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        const value = document.getElementById("username").value
+        console.log(value)
+        
+        fetch(`https://game-funcsion.azurewebsites.net/api/httptrigger1?name=${value}`)
+        .then(response => response.text())
+        .then(data => {
+          console.log(data)
+          tag.innerText = data
+        })
+        .catch(error => console.error('Error:', error));
+        
+      })
+    </script>
   </body>
 </html>
