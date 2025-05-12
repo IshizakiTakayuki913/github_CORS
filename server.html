@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title>githubからAzuerへのCORSの設定</title>
+    <meta charset="utf-8">
+    <script>
+      let azuerAccess = undefined
+      console.log(azuerAccess)
+
+      fetch(`https://game-server-d0dvcne4anencchf.japaneast-01.azurewebsites.net/`)
+      .then(response => response.text())
+      .then(data => {
+        console.log(JSON.parse(data))
+        const tag = document.getElementById("data")
+        tag.innerText = data
+      })
+      .catch(error => console.error('Error:', error));
+    </script>
+  </head>
+
+  <body>
+    <h1>ようこそ</h1>
+    <h2>githubからAzuerへのCORSの設定</h2>
+    <p id="data">...Loading</p>
+  </body>
+</html>
